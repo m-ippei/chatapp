@@ -4,26 +4,20 @@
 <head>
     <title>chat app</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 </head>
 
 <body>
-    <ul id="messages"></ul>
-    <form name="forms" action="">
-        <input id="m" /><button>send</button>
-    </form>
-    <script>
-        $(() => {
-            let socket = io();
-            $('form').submit((e) => {
-                e.preventDefault();
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-                return false;
-            });
-        });
-    </script>
+    <div class="mdc-layout-grid">
+        <div class="mdc-layout__inner">
+            <form id="form">
+                <input class="mdc-text-field--fullwidth" name="msg" type="text">
+                <button class="mdc-button--raised" type="submit">send</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/client.js"></script>
 </body>
 
 </html>
